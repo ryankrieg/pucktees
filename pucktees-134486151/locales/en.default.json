@@ -242,10 +242,10 @@
       "close_menu": "Close menu"
     },
     "cart": {
-      "title": "Cart",
+      "title": "CART",
       "items_count": {
-        "one": "item",
-        "other": "items"
+        "one": "",
+        "other": ""
       }
     },
     "customer": {

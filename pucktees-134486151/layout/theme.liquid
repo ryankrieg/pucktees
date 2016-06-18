@@ -29,6 +29,8 @@
 
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  <!-- MAILCHIMP STYLES -->
+  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
@@ -148,73 +150,47 @@
   {% endif %}
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
+      <div class="grid--full mini-nav">
+        <div class="grid__item large--one-half">
+          <p class="left">SUBSCRIBE TO OUR NEWSLETTER, GET 10% OFF YOUR NEXT ORDER</p>
+          <!-- Begin MailChimp Signup Form -->
+          <div id="mc_embed_signup" class="left">
+            <form action="//pucktees.us13.list-manage.com/subscribe/post?u=278b9254b2776ffaadce6025a&amp;id=9ae937d1d0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="huge@save.com" required>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_278b9254b2776ffaadce6025a_9ae937d1d0" tabindex="-1" value=""></div>
+                <div class="mail-submit clear">
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                  <span class="subscribe-mail-icon"></span>
+                </div>
+                </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+        <div class="grid__item large--one-half large--text-right medium-down--hide">
+
+          <div>
+            <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+              <span class="icon icon-cart" aria-hidden="true"></span>
+              {{ 'layout.cart.title' | t }}
+              <span id="CartCount" class="hidden-count">{{ cart.item_count }}</span>
+              {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+            </a>
+          </div>
+
+        </div>
+      </div>
+
       <div class="wrapper">
 
-        <div class="grid--full grid--table">
-          <div class="grid__item large--one-half">
-            {% comment %}
-              Use the uploaded logo from theme settings if enabled.
-              Site name gets precedence with H1 tag on homepage, div on other pages.
-            {% endcomment %}
-            {% if template == 'index' %}
-              <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-              {% if settings.logo_use_image %}
-                <a href="/" itemprop="url" class="site-header__logo-link">
-                  <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-                </a>
-              {% else %}
-                <a href="/" itemprop="url">{{ shop.name }}</a>
-              {% endif %}
-            {% if template == 'index' %}
-              </h1>
-            {% else %}
-              </div>
-            {% endif %}
-          </div>
-          <div class="grid__item large--one-half large--text-right medium-down--hide">
-            {% comment %}
-              Show number of items in the cart and total cost in the /cart link
-
-              Ajax Cart Notes:
-                - #cartCount updates the total number of items in the cart
-                - #cartCost updates the total cost of the cart
-                - Documentation:  http://shopify.com/timber#ajax-cart
-            {% endcomment %}
-            <div>
-              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                <span class="icon icon-cart" aria-hidden="true"></span>
-                {{ 'layout.cart.title' | t }}
-                (<span id="CartCount">{{ cart.item_count }}</span>
-                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                <span id="CartCost">{{ cart.total_price | money }}</span>)
+        <div class="grid">
+          <div class="grid__item">
+            <div class="site-header__logo">
+              <a href="/" itemprop="url" class="site-header__logo-link">
+                <img src="{{ 'puck-tees-original-apparel-designed-for-beauties-est-2015.png' | asset_url }}" alt="Puck Tees - Original apparel designed for beauties - est 2015" itemprop="logo">
               </a>
-            </div>
-
-            {% comment %}
-              If customer accounts are enabled, provide login and create account links
-            {% endcomment %}
-            {% if shop.customer_accounts_enabled %}
-              <div>
-                {% if customer %}
-                  {% if customer.first_name != blank %}
-                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-                  {% else %}
-                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
-                  {% endif %}
-                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                {% else %}
-                  {{ 'layout.customer.log_in' | t | customer_login_link }}
-                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
-                {% endif %}
-              </div>
-            {% endif %}
-
-            <div class="site-header__search">
-              {% include 'search-bar' %}
             </div>
           </div>
         </div>
@@ -383,8 +359,6 @@
                 {% endfor %}
               </ul>
             {% endunless %}
-            <a href="http://shopify.com/timber">Timber Theme Framework</a> by <a href="http://www.shopify.com?ref=Timber" title="Shopify.com">Shopify</a><br>
-            <small>{{ powered_by_link }}</small>
           </div>
         </div>
       </div>
