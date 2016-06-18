@@ -27,8 +27,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
+  <!-- TYPEKIT FONTS ================================================== -->
+  <script src="https://use.typekit.net/xbp0ngb.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  
   <!-- MAILCHIMP STYLES -->
   <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
@@ -154,7 +159,7 @@
         <div class="grid__item large--one-half">
           <p class="left">SUBSCRIBE TO OUR NEWSLETTER, GET 10% OFF YOUR NEXT ORDER</p>
           <!-- Begin MailChimp Signup Form -->
-          <div id="mc_embed_signup" class="left">
+          <div id="mc_embed_signup">
             <form action="//pucktees.us13.list-manage.com/subscribe/post?u=278b9254b2776ffaadce6025a&amp;id=9ae937d1d0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
               <div id="mc_embed_signup_scroll">
               <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="huge@save.com" required>
