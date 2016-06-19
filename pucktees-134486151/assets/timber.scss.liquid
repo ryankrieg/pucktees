@@ -1798,7 +1798,7 @@ label.error {
     margin: 0 20px 8px 0;
     color: white;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 18px;
     text-align: center;
     @include at-query ($min, $small) {
@@ -1979,9 +1979,12 @@ label.error {
 }
 
 .site-nav {
-  font-size: em(16px);
   cursor: default;
-  margin: 0 0 0 (-$gutter / 2);
+  margin: 0;
+  font-size: em(24px);
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
 
   li {
     margin: 0;
@@ -2006,7 +2009,7 @@ label.error {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: $gutter / 2;
+  padding: 20px 30px;
   white-space: nowrap;
   color: rgba(234,228,233,1);
 
@@ -2326,12 +2329,85 @@ label.error {
   #Site Footer
 ==============================================================================*/
 .site-footer {
-  background-color: $colorFooterBg;
-  padding: $gutter 0;
-  color: $colorFooterText;
+  padding: 60px 0 0 0;
+  color: #e4e7e8;
+  background-color: #1f2122;
 
-  @include at-query ($min, $large) {
-    padding: ($gutter * 2) 0;
+  .footer-logo{
+    width: 200px;
+    margin-bottom: 60px;
+  }
+
+  .site-nav{
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: left;
+    li{
+      display: block;
+      margin: 0 0 10px 0;
+      a{
+        display: inline-block;
+        padding: 0;
+        font-weight: 400;
+      }
+    }
+  }
+
+  ul.social-links{
+    margin: 0 0 20px 0;
+    li{
+      display: block;
+      float: left;
+      margin: 0 18px 0 0;
+      list-style-type: none;
+      a.social-icon{
+        span{
+          display: block;
+          width: 32px;
+          height: 32px;
+          background-size: 32px 32px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          &.facebook{
+            background-image: url({{ 'facebook-pucktees.png' | asset_url }});
+          }
+          &.instagram{
+            background-image: url({{ 'instagram-pucktees.png' | asset_url }});
+          }
+          &.twitter{
+            background-image: url({{ 'twitter-pucktees.png' | asset_url }});
+          }
+          &.pinterest{
+            background-image: url({{ 'pinterest-puck_t.png' | asset_url }});
+          }
+        }
+
+      }
+    }
+  }
+
+  p{
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .mini-footer{
+    height: 42px;
+    padding: 0 20px 8px 20px;
+    background-color: #e4e7e8;
+    p, ul, li{
+      margin-bottom: 0;
+    }
+    p{
+      color: #8d9496;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 42px;
+    }
+    li{
+      margin-top: 6px;
+      color: #8d9496;
+    }
   }
 }
 
