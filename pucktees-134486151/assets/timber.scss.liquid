@@ -730,8 +730,8 @@ body {
 
 .main-content {
   display: block;
-  margin-top: $gutter;
-  padding-bottom: $gutter * 2;
+  margin-top: 100px;
+  padding-bottom: 100px;
 }
 
 /*============================================================================
@@ -2521,6 +2521,33 @@ label.error {
 /*============================================================================
   #Product and Collection Grids
 ==============================================================================*/
+.puck-tee{
+  opacity: 1;
+  margin-bottom: 80px;
+  text-align: center;
+  &:hover, &:active{
+    opacity: 0.8;
+  }
+  .grid__image {
+    margin: 0 auto;
+  }
+  h6{
+    margin: 0;
+    padding: 0 30px;
+    color: #383a3b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  p{
+    color: #383a3b;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
 .grid__image {
   display: block;
   margin: 0 auto ($gutter / 2);
