@@ -1825,6 +1825,7 @@ label.error {
       float: left;
       width: 150px;
       height: 28px;
+      padding: 0 6px;
       color: #383a3b;
       font-family: 'proxima-nova', Helvetica, arial, sans-serif;
       font-size: 14px;
@@ -2329,9 +2330,111 @@ label.error {
   #Site Footer
 ==============================================================================*/
 .site-footer {
-  padding: 60px 0 0 0;
-  color: #e4e7e8;
-  background-color: #1f2122;
+
+  .footer-newsletter{
+    height: 240px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url({{ 'pond-hockey-mountains.jpg' | asset_url }});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    h2{
+      margin: 50px 0 0 0;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+    h3{
+      margin: 0 0 0 0;
+      display: block;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 32px;
+    }
+    #mc_embed_signup{
+      background: transparent;
+      width: 300px;
+      margin: 20px auto 0 auto;
+      form{
+        text-align: left;
+        padding: 0;
+      }
+      input.email{
+        display: block;
+        float: left;
+        width: 250px;
+        height: 50px;
+        padding: 0 8px 0 16px;
+        color: #383a3b;
+        font-family: 'proxima-nova', Helvetica, arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: rgba(255,255,255,1);
+        border: 1px solid #00ccff;
+        -webkit-border-radius: 5px 0px 0px 5px;
+        -moz-border-radius: 5px 0px 0px 5px;
+        border-radius: 5px 0px 0px 5px;
+        &:focus{
+          background-color: rgba(255,255,255,1);
+        }
+      }
+      ::-webkit-input-placeholder {
+        color: #8d9496;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #8d9496;
+      }
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: #8d9496;
+      }
+      :-ms-input-placeholder {
+        color: #8d9496;
+      }
+      .mail-submit{
+        position: relative;
+      }
+      .clear{
+        @include at-query ($max, $small) {
+          display: inline-block;
+          width: 50px;
+        }
+      }
+      .button{
+        display: block;
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: #00ccff;
+        font-size: 0;
+        line-height: 50px;
+        color: transparent;
+        -webkit-border-radius: 0px 5px 5px 0px;
+        -moz-border-radius: 0px 5px 5px 0px;
+        border-radius: 0px 5px 5px 0px;
+        &:hover, &:active{
+          background-color: #00b9e7;
+        }
+      }
+      .subscribe-mail-icon{
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        width: 27px;
+        height: 22px;
+        background-image: url({{ 'subscribe-mail-icon-large.png' | asset_url }});
+        background-size: 27px 22px;
+      }
+    }
+  }
+
+  .main-footer{
+    padding: 60px 0 0 0;
+    color: #e4e7e8;
+    background-color: #1f2122;
+  }
 
   .footer-logo{
     width: 200px;
@@ -2362,12 +2465,16 @@ label.error {
       list-style-type: none;
       a.social-icon{
         span{
+          opacity: 1;
           display: block;
           width: 32px;
           height: 32px;
           background-size: 32px 32px;
-          background-position: center center;
+          background-position: center left;
           background-repeat: no-repeat;
+          &:hover, &:active{
+            opacity: 0.9;
+          }
           &.facebook{
             background-image: url({{ 'facebook-pucktees.png' | asset_url }});
           }

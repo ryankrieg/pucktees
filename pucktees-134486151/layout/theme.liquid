@@ -278,52 +278,79 @@
 
     <!-- begin site-footer -->
     <footer class="site-footer small--text-center" role="contentinfo">
-      <div class="wrapper">
-        <div class="grid">
-          <div class="grid__item one-third">
-            <img src="{{ 'puck-tees-original-apparel-designed-for-beauties-est-2015-alternate.png' | asset_url }}" alt="Puck Tees - Original apparel designed for beauties - est 2015" itemprop="logo" class="footer-logo">
+      <div class="footer-newsletter">
+        <div class="wrapper">
+          <div class="grid">
+            <div class="grid__item">
+              <h2>Subscribe to our newsletter and we'll give you</h2>
+              <h3>10% off your next order</h3>
+              <!-- Begin MailChimp Signup Form -->
+              <div id="mc_embed_signup">
+                <form action="//pucktees.us13.list-manage.com/subscribe/post?u=278b9254b2776ffaadce6025a&amp;id=9ae937d1d0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+                  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="huge@save.com" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_278b9254b2776ffaadce6025a_9ae937d1d0" tabindex="-1" value=""></div>
+                    <div class="mail-submit clear">
+                      <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                      <span class="subscribe-mail-icon"></span>
+                    </div>
+                    </div>
+                </form>
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
           </div>
-          <div class="grid__item one-third">
-            {% comment %}
-              List out your main-menu linklist (default)
+        </div>
+      </div>
+      <div class="main-footer">
+        <div class="wrapper">
+          <div class="grid">
+            <div class="grid__item one-third">
+              <img src="{{ 'puck-tees-original-apparel-designed-for-beauties-est-2015-alternate.png' | asset_url }}" alt="Puck Tees - Original apparel designed for beauties - est 2015" itemprop="logo" class="footer-logo">
+            </div>
+            <div class="grid__item one-third">
+              {% comment %}
+                List out your main-menu linklist (default)
 
-              More info on linklists:
-                - http://docs.shopify.com/themes/liquid-variables/linklists
-            {% endcomment %}
-            <!-- begin site-nav -->
-            <ul class="site-nav" id="AccessibleNav">
-              {% for link in linklists.main-menu.links %}
-                {% assign child_list_handle = link.title | handleize %}
-                {% if linklists[child_list_handle].links != blank %}
-                  <li class="site-nav--has-dropdown" aria-haspopup="true">
-                    <a href="{{ link.url }}" class="site-nav__link">
-                      {{ link.title }}
-                      <span class="icon icon-arrow-down" aria-hidden="true"></span>
-                    </a>
-                    <ul class="site-nav__dropdown">
-                      {% for childlink in linklists[child_list_handle].links %}
-                        <li>
-                          <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                {% else %}
-                  <li>
-                    <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="grid__item one-third">
-            <ul class="social-links clearfix">
-              <li><a href="https://www.facebook.com/pucktees/" target="_blank" class="social-icon"><span class="facebook"></span></a></li>
-              <li><a href="https://www.instagram.com/pucktees/" target="_blank" class="social-icon"><span class="instagram"></span></a></li>
-              <li><a href="https://twitter.com/pucktees" target="_blank" class="social-icon"><span class="twitter"></span></a></li>
-              <li><a href="https://www.pinterest.com/puck_tees/puck-tees-gear/" target="_blank" class="social-icon"><span class="pinterest"></span></a></li>
-            </ul>
-            <p>info@pucktees.org</p>
+                More info on linklists:
+                  - http://docs.shopify.com/themes/liquid-variables/linklists
+              {% endcomment %}
+              <!-- begin site-nav -->
+              <ul class="site-nav" id="AccessibleNav">
+                {% for link in linklists.main-menu.links %}
+                  {% assign child_list_handle = link.title | handleize %}
+                  {% if linklists[child_list_handle].links != blank %}
+                    <li class="site-nav--has-dropdown" aria-haspopup="true">
+                      <a href="{{ link.url }}" class="site-nav__link">
+                        {{ link.title }}
+                        <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                      </a>
+                      <ul class="site-nav__dropdown">
+                        {% for childlink in linklists[child_list_handle].links %}
+                          <li>
+                            <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                  {% else %}
+                    <li>
+                      <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="grid__item one-third">
+              <ul class="social-links clearfix">
+                <li><a href="https://www.facebook.com/pucktees/" target="_blank" class="social-icon"><span class="facebook"></span></a></li>
+                <li><a href="https://www.instagram.com/pucktees/" target="_blank" class="social-icon"><span class="instagram"></span></a></li>
+                <li><a href="https://twitter.com/pucktees" target="_blank" class="social-icon"><span class="twitter"></span></a></li>
+                <li><a href="https://www.pinterest.com/puck_tees/puck-tees-gear/" target="_blank" class="social-icon"><span class="pinterest"></span></a></li>
+              </ul>
+              <p>info@pucktees.org</p>
+            </div>
           </div>
         </div>
       </div>
