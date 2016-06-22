@@ -155,7 +155,7 @@
   {% endif %}
   <div id="PageContainer" class="is-moved-by-drawer">
     <header class="site-header" role="banner">
-      <div class="grid--full mini-nav">
+      <div class="grid--full mini-nav medium-down--hide">
         <div class="grid__item large--one-half">
           <p class="left">SUBSCRIBE TO OUR NEWSLETTER, GET 10% OFF YOUR NEXT ORDER</p>
           <!-- Begin MailChimp Signup Form -->
@@ -246,22 +246,20 @@
           <!-- //site-nav -->
         </div>
         <div class="large--hide medium-down--show">
-          <div class="grid">
+          <div class="grid--full">
             <div class="grid__item one-half">
               <div class="site-nav--mobile">
-                <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+                <button type="button" class="icon-fallback-text site-nav__link mobile-menu js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
                   <span class="icon icon-hamburger" aria-hidden="true"></span>
-                  <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+                  <span>MENU</span>
                 </button>
               </div>
             </div>
             <div class="grid__item one-half text-right">
               <div class="site-nav--mobile">
-                <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
-                  <span class="icon-fallback-text">
-                    <span class="icon icon-cart" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
-                  </span>
+                <a href="/cart" class="js-drawer-open-right site-nav__link mobile-cart" aria-controls="CartDrawer" aria-expanded="false">
+                  <span class="icon icon-cart" aria-hidden="true"></span>
+                  <span>CART</span>
                 </a>
               </div>
             </div>
@@ -306,10 +304,10 @@
       <div class="main-footer">
         <div class="wrapper">
           <div class="grid">
-            <div class="grid__item one-third">
+            <div class="grid__item large--one-third medium-down--hide">
               <img src="{{ 'puck-tees-original-apparel-designed-for-beauties-est-2015-alternate.png' | asset_url }}" alt="Puck Tees - Original apparel designed for beauties - est 2015" itemprop="logo" class="footer-logo">
             </div>
-            <div class="grid__item one-third">
+            <div class="grid__item large--one-third medium--one-half">
               {% comment %}
                 List out your main-menu linklist (default)
 
@@ -361,7 +359,7 @@
                 </p>
               {% endif %}
             </div>
-            <div class="grid__item one-third">
+            <div class="grid__item large--one-third medium--one-half">
               <ul class="social-links clearfix">
                 <li><a href="https://www.facebook.com/pucktees/" target="_blank" class="social-icon"><span class="facebook"></span></a></li>
                 <li><a href="https://www.instagram.com/pucktees/" target="_blank" class="social-icon"><span class="instagram"></span></a></li>
@@ -374,11 +372,11 @@
         </div>
       </div>
       <div class="grid--full mini-footer">
-        <div class="grid__item one-half">
+        <div class="grid__item large--one-half medium--one-half">
           <p>© <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> Fortuna Ventures Inc.</p>
         </div>
 
-        <div class="grid__item one-half text-right">
+        <div class="grid__item large--one-half medium--one-half medium--text-right large--text-right">
           {% comment %}
             Loop through available payment methods and show their icons.
           {% endcomment %}
