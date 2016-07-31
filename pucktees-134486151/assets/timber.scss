@@ -144,19 +144,19 @@ $zindexDrawer: 10;
 
 /*================ Typography ================*/
 
-$headerFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$headerFontWeight: 700;
+$headerFontStack: 'proxima-nova', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$headerFontWeight: 800;
 
-$bodyFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$bodyFontStack: 'proxima-nova', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $baseFontSize: 14px; // Henceforth known as 1em
 
 @font-face {
   font-family: 'icons';
-  src: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.eot?5075097031573370863');
-  src: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.eot?5075097031573370863#iefix') format("embedded-opentype"),
-       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.woff?5075097031573370863') format("woff"),
-       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.ttf?5075097031573370863') format("truetype"),
-       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.svg?5075097031573370863#timber-icons') format("svg");
+  src: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.eot?11783035267649877723');
+  src: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.eot?11783035267649877723#iefix') format("embedded-opentype"),
+       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.woff?11783035267649877723') format("woff"),
+       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.ttf?11783035267649877723') format("truetype"),
+       url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/icons.svg?11783035267649877723#timber-icons') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -713,7 +713,7 @@ body {
   background-color: $colorBody;
 }
 
-[tabindex='-1']:focus {
+[tabindex='-1']:focus, *:focus {
   outline: none;
 }
 
@@ -730,8 +730,21 @@ body {
 
 .main-content {
   display: block;
-  margin-top: $gutter;
-  padding-bottom: $gutter * 2;
+  margin-top: 60px;
+  padding-bottom: 0px;
+  @include at-query ($min, $small) {
+    margin-top: 100px;
+    padding-bottom: 60px;
+  }
+  h1{
+    font-weight: 700px;
+  }
+  p{
+    margin: 0 0 22px 0;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+  }
 }
 
 /*============================================================================
@@ -1481,7 +1494,7 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/ico-select.svg?5075097031573370863');
+    image: url('//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/ico-select.svg?11783035267649877723');
     repeat: no-repeat;
     position: right 10px center;
     color: transparent;
@@ -1769,28 +1782,143 @@ label.error {
   #Site Header
 ==============================================================================*/
 .site-header {
-  padding: ($gutter / 2) 0;
-
-  .grid--table {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-
-    > .grid__item {
-      float: none;
-      display: table-cell;
-      vertical-align: middle;
+  //border-bottom: 1px solid #383a3b;
+  .wrapper{
+    max-width: 100%;
+    height: 280px;
+    margin: 0;
+    padding: 0;
+    @include at-query ($min, $small) {
+      height: 400px;
+      background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/gear-scattered-on-rink.jpg?11783035267649877723);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }
 
-.site-header__logo {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 100%;
+.mini-nav{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 88px;
+  padding: 8px 20px 0 20px;
+  background-color: rgba(0,204,255,0.75);
+  @include at-query ($min, $small) {
+    height: 44px;
+  }
+  p{
+    margin: 0 20px 8px 0;
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 18px;
+    text-align: center;
+    @include at-query ($min, $small) {
+      margin: 0 20px 0 0;
+      text-align: left;
+      line-height: 28px;
+    }
+  }
 
-  @include at-query ($min, $large) {
-    text-align: left;
+  #mc_embed_signup{
+    background: transparent;
+    width: 186px;
+    margin: 0 auto;
+    @include at-query ($min, $small) {
+      float: left;
+      margin: 0;
+    }
+    form{
+      text-align: left;
+      padding: 0;
+    }
+    input.email{
+      display: block;
+      float: left;
+      width: 150px;
+      height: 28px;
+      padding: 0 6px;
+      color: #383a3b;
+      font-family: 'proxima-nova', Helvetica, arial, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      background-color: rgba(255,255,255,0.9);
+      border: 1px solid #20abce;
+      -webkit-border-radius: 5px 0px 0px 5px;
+      -moz-border-radius: 5px 0px 0px 5px;
+      border-radius: 5px 0px 0px 5px;
+      &:focus{
+        background-color: rgba(255,255,255,1);
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: #0e97c4;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: #0e97c4;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+      color: #0e97c4;
+    }
+    :-ms-input-placeholder {
+      color: #0e97c4;
+    }
+    .mail-submit{
+      position: relative;
+    }
+    .clear{
+      @include at-query ($max, $small) {
+        display: inline-block;
+        width: 36px;
+      }
+    }
+    .button{
+      display: block;
+      float: left;
+      width: 34px;
+      height: 28px;
+      background-color: #20abce;
+      font-size: 0;
+      line-height: 28px;
+      color: transparent;
+      -webkit-border-radius: 0px 5px 5px 0px;
+      -moz-border-radius: 0px 5px 5px 0px;
+      border-radius: 0px 5px 5px 0px;
+      &:hover, &:active{
+        background-color: #1296b7;
+      }
+    }
+    .subscribe-mail-icon{
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 24px;
+      height: 18px;
+      background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/subscribe-mail-icon.png?11783035267649877723);
+      background-size: 24px 18px;
+    }
+  }
+
+  a, a:visited{
+    color: white;
+  }
+  a:hover, a:active{
+    color: rgba(255,255,255,0.75);
+  }
+}
+
+.site-header__logo {
+  width: 200px;
+  max-width: 100%;
+  margin: 100px auto 0 auto;
+  text-align: center;
+  @include at-query ($min, $small) {
+    width: 370px;
+    margin: 90px auto 0 auto;
   }
 
   a,
@@ -1815,6 +1943,31 @@ label.error {
 
 .site-header__cart-toggle {
   display: inline-block;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 800;
+  .icon{
+    float: left;
+    margin-right: 8px;
+    font-size: 24px;
+  }
+  #CartCount{
+    display: block;
+    float: right;
+    margin: 2px 0 0 8px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    background-color: #20abce;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    &.hidden-count{
+      display: none;
+    }
+  }
 }
 
 .site-header__search {
@@ -1837,13 +1990,30 @@ label.error {
   #Site Nav and Dropdowns
 ==============================================================================*/
 .nav-bar {
-  background-color: $colorNav;
+  @include at-query ($min, $small) {
+    background-color: #383a3b;
+  }
+  @include at-query ($max, $small) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    -webkit-backface-visibility:hidden; /*Most Important*/
+  }
+  .wrapper{
+    @include at-query ($max, $small) {
+      padding: 0;
+    }
+  }
 }
 
 .site-nav {
-  font-size: em(16px);
   cursor: default;
-  margin: 0 0 0 (-$gutter / 2);
+  margin: 0;
+  font-size: em(24px);
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
 
   li {
     margin: 0;
@@ -1861,21 +2031,68 @@ label.error {
   @extend .site-nav;
 
   .text-right & {
-    margin: 0 (-$gutter / 2) 0 0;
+    margin: 0;
   }
 }
 
 .site-nav__link {
   display: block;
+  padding: 20px 30px;
   text-decoration: none;
-  padding: $gutter / 2;
   white-space: nowrap;
-  color: $colorNavText;
+  color: rgba(234,228,233,1);
 
-  &:hover,
+  &.mobile-menu, &.mobile-cart{
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 800;
+    .icon{
+      vertical-align: middle;
+      margin-right: 8px;
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+
+  &.mobile-menu{
+    color: #eae4e9;
+    text-align: left;
+    background-color: #383a3b;
+  }
+
+  &.mobile-cart{
+    color: rgba(255,255,255,1);
+    text-align: right;
+    background-color: rgba(0,204,255,1);
+    &:hover, &:active{
+      background-color: rgba(0,204,255,0.75);
+    }
+    #CartCount{
+      display: block;
+      float: right;
+      margin: 2px 0 0 8px;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 24px;
+      background-color: #20abce;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      border-radius: 12px;
+      &.hidden-count{
+        display: none;
+      }
+    }
+  }
+
   &:active,
   &:focus {
-    color: darken($colorNavText, 15%);
+    color: #fff;
   }
 
   .icon-arrow-down {
@@ -1886,7 +2103,7 @@ label.error {
   }
 
   .site-nav--active > & {
-    font-weight: bold;
+    color: rgba(0,204,255,1);
   }
 
   .site-nav--mobile & {
@@ -2186,18 +2403,262 @@ label.error {
   #Site Footer
 ==============================================================================*/
 .site-footer {
-  background-color: $colorFooterBg;
-  padding: $gutter 0;
-  color: $colorFooterText;
 
-  @include at-query ($min, $large) {
-    padding: ($gutter * 2) 0;
+  .footer-newsletter{
+    height: 240px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/pond-hockey-mountains.jpg?11783035267649877723);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    h2{
+      margin: 50px 0 0 0;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 28px;
+      @include at-query ($min, $small) {
+        font-size: 24px;
+        line-height: 32px
+      }
+    }
+    h3{
+      margin: 0 0 0 0;
+      display: block;
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 28px;
+      @include at-query ($min, $small) {
+        font-size: 32px;
+        line-height: 32px
+      }
+    }
+    #mc_embed_signup{
+      background: transparent;
+      width: 290px;
+      margin: 20px auto 0 auto;
+      form{
+        text-align: left;
+        padding: 0;
+      }
+      input.email{
+        display: block;
+        float: left;
+        width: 240px;
+        height: 50px;
+        padding: 0 8px 0 16px;
+        color: #383a3b;
+        font-family: 'proxima-nova', Helvetica, arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: rgba(255,255,255,1);
+        border: 1px solid #00ccff;
+        -webkit-border-radius: 5px 0px 0px 5px;
+        -moz-border-radius: 5px 0px 0px 5px;
+        border-radius: 5px 0px 0px 5px;
+        &:focus{
+          background-color: rgba(255,255,255,1);
+        }
+      }
+      ::-webkit-input-placeholder {
+        color: #8d9496;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #8d9496;
+      }
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: #8d9496;
+      }
+      :-ms-input-placeholder {
+        color: #8d9496;
+      }
+      .mail-submit{
+        position: relative;
+      }
+      .clear{
+        @include at-query ($max, $small) {
+          display: inline-block;
+          width: 50px;
+        }
+      }
+      .button{
+        display: block;
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: #00ccff;
+        font-size: 0;
+        line-height: 50px;
+        color: transparent;
+        -webkit-border-radius: 0px 5px 5px 0px;
+        -moz-border-radius: 0px 5px 5px 0px;
+        border-radius: 0px 5px 5px 0px;
+        &:hover, &:active{
+          background-color: #00b9e7;
+        }
+      }
+      .subscribe-mail-icon{
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        width: 27px;
+        height: 22px;
+        background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/subscribe-mail-icon-large.png?11783035267649877723);
+        background-size: 27px 22px;
+      }
+    }
+  }
+
+  .main-footer{
+    padding: 20px 0 0 0;
+    background-color: #1f2122;
+    @include at-query ($min, $small) {
+      padding: 60px 0 0 0;
+    }
+  }
+
+  .footer-logo{
+    width: 200px;
+    margin-bottom: 60px;
+  }
+
+  .site-nav{
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    @include at-query ($min, $small) {
+      text-align: left;
+    }
+    li{
+      display: block;
+      margin: 0 0 10px 0;
+      a{
+        display: inline-block;
+        padding: 0;
+        font-weight: 400;
+      }
+    }
+  }
+
+  ul.social-links{
+    margin: 0 0 20px 0;
+    text-align: center;
+    @include at-query ($min, $small) {
+      text-align: left;
+    }
+    li{
+      display: inline-block;
+      margin: 0 18px 0 0;
+      list-style-type: none;
+      @include at-query ($min, $small) {
+        display: block;
+        float: left;
+      }
+      &:last-child{
+        margin: 0;
+      }
+      a.social-icon{
+        span{
+          opacity: 1;
+          display: block;
+          width: 32px;
+          height: 32px;
+          background-size: 32px 32px;
+          background-position: center left;
+          background-repeat: no-repeat;
+          &:hover, &:active{
+            opacity: 0.9;
+          }
+          &.facebook{
+            background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/facebook-pucktees.png?11783035267649877723);
+          }
+          &.instagram{
+            background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/instagram-pucktees.png?11783035267649877723);
+          }
+          &.twitter{
+            background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/twitter-pucktees.png?11783035267649877723);
+          }
+          &.pinterest{
+            background-image: url(//cdn.shopify.com/s/files/1/0815/0637/t/4/assets/pinterest-puck_t.png?11783035267649877723);
+          }
+        }
+
+      }
+    }
+  }
+
+  p{
+    color: #e4e7e8;
+    font-size: 18px;
+    font-weight: 400;
+    @include at-query ($max, $small) {
+      margin-bottom: 30px;
+    }
+    a, a:visited{
+      color: #e4e7e8;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    a:hover, a:active{
+      color: #8d9496;
+    }
+  }
+
+  .mini-footer{
+    height: 42px;
+    padding: 0 20px 8px 20px;
+    background-color: #e4e7e8;
+    p, ul, li{
+      margin-bottom: 0;
+    }
+    p{
+      color: #8d9496;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 42px;
+    }
+    li{
+      margin-top: 6px;
+      color: #8d9496;
+    }
   }
 }
 
 /*============================================================================
   #Product and Collection Grids
 ==============================================================================*/
+.puck-tee{
+  opacity: 1;
+  margin-bottom: 80px;
+  text-align: center;
+  @include at-query ($min, $small) {
+    margin-bottom: 40px;
+  }
+  &:hover, &:active{
+    opacity: 0.8;
+  }
+  .grid__image {
+    margin: 0 auto;
+  }
+  h6{
+    margin: 0;
+    padding: 0 30px;
+    color: #383a3b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  p{
+    color: #383a3b;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
 .grid__image {
   display: block;
   margin: 0 auto ($gutter / 2);
